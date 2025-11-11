@@ -4,7 +4,7 @@ metadata:
   name : tracking-order-deployment
   labels:
     first: app
-  spec:
+spec:
   replicas: 3
   selector:
     matchLabels:
@@ -32,4 +32,5 @@ spec:
       - protocol: TCP
         port: 83
         targetPort: 3000
-    type: NodePort
+        NodePort: 30083
+
