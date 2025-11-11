@@ -5,8 +5,8 @@ metadata:
 spec:
   selector:
     app: web
-ports:
-  - protocol: TCP
-    port: 83
-    targetPort: 3000
-    NodePort: 30083
+  ports:
+    - protocol: TCP
+      port: 83
+      targetPort: 3000
+      NodePort: 30083
