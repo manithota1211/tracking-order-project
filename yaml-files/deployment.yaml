@@ -1,4 +1,4 @@
-app version: apps/v1
+apiVersion: apps/v1
 kind: replica-set
 metadata:
   name : tracking-order-replicaset
