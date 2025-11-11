@@ -21,7 +21,7 @@ metadata:
             - containerPort: 3000
 
 ---
-apiVersion: v1
+apiVersion: v1.0
 kind: Service
 metadata:
   name: tracking-order-service
