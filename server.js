@@ -18,10 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/parceltracker', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect('mongodb://mongodb:27017/parceltracker')
 .then(async () => {
   console.log('MongoDB connected successfully');
   // Initialize chatbot FAQs
