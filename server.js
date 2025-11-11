@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/parceltracker')
+mongoose.connect('manikanta1432/tracking-order-project')
 .then(async () => {
   console.log('MongoDB connected successfully');
   // Initialize chatbot FAQs
