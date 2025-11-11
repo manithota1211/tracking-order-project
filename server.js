@@ -2,7 +2,7 @@
 
 const express = require('express');
 const path = require('path');
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./models/User');
@@ -16,6 +16,18 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here';
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/parceltracker', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(async () => {
+  console.log('MongoDB connected successfully');
+  // Initialize chatbot FAQs
+  await ChatbotService.initializeFAQs();
+})
+.catch(err => console.error('MongoDB connection error:', err));
 
 // Authentication middleware
 const authenticateToken = (req, res, next) => {
