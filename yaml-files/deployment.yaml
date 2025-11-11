@@ -19,7 +19,5 @@ spec:
           image: manikanta1432/tracking-order-project:v1.1.0
           ports:
             - containerPort: 3000
-          env:
-            - name: PORT
-              value: "3000"
+          
             
