@@ -1,18 +1,18 @@
-app version: "3.8"
+app version: apps/v1
 kind: replica-set
 metadata:
   name : tracking-order-replicaset
   labels:
-    app: web
+    first: app
   spec:
   replicas: 3
   selector:
     matchLabels:
-      web: tracking-order
+      app: web
   template:
     metadata:
       labels:
-        web: tracking-order
+        app: web
     spec:
       containers:
       - name: tracking-order-container
@@ -27,8 +27,9 @@ metadata:
   name: tracking-order-service
 spec:
   selector:
-    web: tracking-order
+    app: web
     ports:
       - protocol: TCP
         port: 83
         targetPort: 3000
+    type: NodePort
