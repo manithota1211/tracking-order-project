@@ -1,0 +1,34 @@
+app version: apps/v1
+kind: replica-set
+metadata:
+  name : tracking-order-replicaset
+  labels:
+    app: web
+  spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      web: tracking-order
+  template:
+    metadata:
+      labels:
+        web: tracking-order
+    spec:
+      containers:
+      - name: tracking-order-container
+        image: manikanta1432/traking-order-project
+        ports:
+        - containerPort: 3000
+
+---
+apiversion: v1
+kind: service
+metadata:
+  name: tracking-order-service
+spec:
+  selector:
+    web: tracking-order
+    ports:
+      - protocol: TCP
+        port: 83
+        targetPort: 3000
