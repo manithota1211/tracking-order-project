@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: replica-set
+kind: Deployment
 metadata:
-  name : tracking-order-replicaset
+  name : tracking-order-deployment
   labels:
     first: app
   spec:
